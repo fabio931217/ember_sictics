@@ -1,0 +1,13 @@
+<ion-view view-title="Equipo">
+  <ion-content>
+    <ion-list ng-repeat="datos in equipo"> 
+
+    <a class="item item-avatar" href="#/app/perfil">
+      <img src="{{datos.img}}">
+      <h2>{{datos.usuario}}</h2>
+      <p>{{datos.profesion}}</p>
+    </a>
+</ion-list>
+
+  </ion-content>
+</ion-view>

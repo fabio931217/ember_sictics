@@ -1,0 +1,28 @@
+<ion-view view-title="Inicio">
+  <ion-content>
+      <ion-item ng-repeat="datos in inicio">
+        <ion-item list card>
+          <a href="#/app/perfil" class="item">
+            <div class="item item-avatar">
+              <img src="{{datos.avatar}}"> 
+              <h2>{{datos.usuario}}</h2> 
+              <p>{{datos.fecha}}</p>
+            </div>
+          </a>
+
+          <div class="item item-body">
+            <img class="full-image" src="{{datos.img}}">
+              <p>
+                  {{mision.texto}}
+              </p>
+
+          </div>
+
+      </ion-item>
+
+    
+  </ion-content> 
+</ion-view>
+
+
+ 

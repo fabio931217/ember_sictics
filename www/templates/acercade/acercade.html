@@ -1,0 +1,19 @@
+<ion-view view-title="Nosotros">
+  <ion-content>
+    <div class="card">
+  		<div class="item item-text-wrap">
+    		<h1></h1>
+    		<p>En este espacio ira la informacion de los que hicimos la pagina nuetsros datos de contacto y nuestro perfil</p>
+  		</div>
+	</div>
+
+    <ion-list ng-repeat="datos in equipo"> 
+
+    <a class="item item-avatar" href="#/app/perfil">
+      <img src="{{datos.img}}">
+      <h2>{{datos.usuario}}</h2>
+      <p>{{datos.profesion}}</p>
+    </a>
+</ion-list>
+  </ion-content>
+</ion-view>
