@@ -1,6 +1,6 @@
-<ion-view view-title="Inicio">
+<ion-view view-title="Mural">
   <ion-content>
-      <ion-item ng-repeat="datos in inicio">
+      <ion-item ng-repeat="datos in mural">
         <ion-item list card>
           <a href="#/app/perfil" class="item">
             <div class="item item-avatar">
@@ -10,12 +10,9 @@
             </div>
           </a>
    
-          <div class="item item-body">
-          <h2> {{datos.titulo}} </h2>
-            <img class="full-image" src="{{datos.imagen}}">
-            
+          <div class="item item-body">   
               <p>
-                  {{datos.contenido}}
+                  {{datos.mensaje}}
               </p>
 
           </div>
@@ -25,6 +22,3 @@
     
   </ion-content>  
 </ion-view>
-
-
- 

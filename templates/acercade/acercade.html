@@ -3,17 +3,17 @@
     <div class="card">
   		<div class="item item-text-wrap">
     		<h1></h1>
-    		<p>En este espacio ira la informacion de los que hicimos la pagina nuetsros datos de contacto y nuestro perfil</p>
+    		<p>Equipo de desarrollo de software de la Corporacion Sigtics</p>
   		</div>
 	</div>
 
     <ion-list ng-repeat="datos in equipo"> 
 
     <a class="item item-avatar" href="#/app/perfil">
-      <img src="{{datos.img}}">
-      <h2>{{datos.usuario}}</h2>
-      <p>{{datos.profesion}}</p>
+      <img src="{{datos.avatar}}">
+      <h2>{{datos.nombres}} {{datos.apellido1}} {{datos.apellido2}}</h2>
+      <p>{{datos.dereccion}}</p>
     </a>
 </ion-list>
   </ion-content>
-</ion-view>
+</ion-view> 

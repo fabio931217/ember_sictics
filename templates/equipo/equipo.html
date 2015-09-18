@@ -3,11 +3,12 @@
     <ion-list ng-repeat="datos in equipo"> 
 
     <a class="item item-avatar" href="#/app/perfil">
-      <img src="{{datos.img}}">
-      <h2>{{datos.usuario}}</h2>
-      <p>{{datos.profesion}}</p>
+      <img src="{{datos.avatar}}">
+      <h2>{{datos.nombres}} {{datos.apellido1}} {{datos.apellido2}}</h2>
+      <p>{{datos.dereccion}}</p>
     </a>
 </ion-list>
 
   </ion-content>
 </ion-view>
+  

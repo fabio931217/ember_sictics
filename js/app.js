@@ -80,7 +80,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/contacto',
       views: {
         'menuContent': {
-          templateUrl: 'templates/contacto/contacto.html'
+          templateUrl: 'templates/contacto/contacto.html',
+          controller: 'PlaylistsCtrl'
         }
       }
     })
@@ -89,6 +90,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/acercade/acercade.html',
+          controller: 'PlaylistsCtrl'
+        }
+      }
+    })
+  .state('app.mural', {
+      url: '/mural',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/mural/mural.html',
           controller: 'PlaylistsCtrl'
         }
       }

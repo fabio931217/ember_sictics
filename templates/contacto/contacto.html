@@ -1,21 +1,26 @@
 <ion-view view-title="Contacto">
   <ion-content>
  		<div class="list list-inset">
-  			<label class="item item-input">
-    		<input type="text" placeholder="Nombre Completo" >
-  			</label>
-  			<label class="item item-input">
-   			<input type="text" placeholder="asass@asas.com" >
-  			</label>
-  			<label class="item item-input">
-   			<textarea name="" placeholder="Descripcion" ></textarea>
-  			</label>
-  			<label class="item item-input">
-   			<input type="button" value="Enviar" class="button button-stable" align="center">
-  			</label>
+    <form ng-submit="guardar()" method="post" name="enviar" id="enviar" >
 
-		
+  			<label class="item item-select">
+    		<select name="id" id="id" class="combo">
+          <option value="0">Seleccione una persona</option>
+            <option ng-repeat="datos in cargar_personas" value="{{datos.id}}"> {{datos.nombres}} {{datos.apellido1}} {{datos.apellido2}} </option>
+        </select>
+  			</label>
+  			<label class="item item-input">
+   			<input type="text" placeholder="asass@asas.com" id="email">
+  			</label>
+  			<label class="item item-input">
+   			<textarea name="" placeholder="Descripcion" id="mensaje"></textarea>
+  			</label>
+  			<label class="item item-input">
+   			<input type="submit" value="Enviar" class="button button-stable" >
+  			</label> 
+
+		    </form>
 
 			</div>
   </ion-content>
-</ion-view>
+</ion-view>  

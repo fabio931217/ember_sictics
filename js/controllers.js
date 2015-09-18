@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   };
 
-  // Open the login modal
+  // Open the login modal  
   $scope.login = function() {
     $scope.modal.show();
   };
@@ -41,35 +41,107 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-$scope.inicio = [
-    { avatar: 'img/avatar.png', usuario: 'Jesson', fecha: 'Septiembre 04, 2015', img: 'img/delorean.jpg', id: 1, texto: 'Esto e suna prueba de como sera nuestra pagina de inicio 1' },
-    { avatar: 'img/avatar.png', usuario: 'Ember', fecha: 'Septiembre 05, 2015', img: 'img/delorean.jpg', id: 2, texto: 'Esto e suna prueba de como sera nuestra pagina de inicio 2' },
-    { avatar: 'img/avatar.png', usuario: 'Yhonatan', fecha: 'Septiembre 06, 2015', img: 'img/delorean.jpg', id: 3, texto: 'Esto e suna prueba de como sera nuestra pagina de inicio 3' }
-  ];
+.controller('PlaylistsCtrl',  function($scope,$http) {
 
-  $scope.mision = [
-    { texto: 'En este espacio ira la mision de nuestra empresa, la mision sera agregada modificada desde l apagina web de administracion y se cragara desde la base de datos' }
-    ];
+    $http.get('http://kambamberos.wirez.com.ar/php/cargar_personas.php').
+      then(function(response) {
+       // $scope.$apply(function() {
+            $scope.equipo = response.data;
+            //console.log(response.data);
+           
+      //  })
+        
+     })
 
-    $scope.vision = [
-    { texto: 'En este espacio ira la Vision de nuestra empresa, la Vision sera agregada modificada desde l apagina web de administracion y se cragara desde la base de datos' }
-    ];
+      $http.get('http://kambamberos.wirez.com.ar/php/listar_noticias.php').
+      then(function(response) {
+       // $scope.$apply(function() {
+            $scope.inicio = response.data;
+          //  console.log(response.data);
+           
+      //  })
+        
+     })
 
-    $scope.equipo = [
-    { id: 1, usuario: 'Ember', profesion: 'Ingeniero Teleinformatico', img: 'img/avatar.png'},
-    { id: 2, usuario: 'Fabio', profesion: 'Ingeniero Teleinformatico', img: 'img/avatar.png'},
-    { id: 1, usuario: 'Harlinton', profesion: 'Ingeniero Teleinformatico', img: 'img/avatar.png'},
-    { id: 1, usuario: 'Leon', profesion: 'Ingeniero Teleinformatico', img: 'img/avatar.png'}
-  ];
+
+
+      $http.get('http://kambamberos.wirez.com.ar/php/listar_mision.php').
+      then(function(response) {
+       // $scope.$apply(function() {
+            $scope.mision = response.data;
+            //console.log(response.data);
+           
+      //  })
+        
+     })
+
+      $http.get('http://kambamberos.wirez.com.ar/php/listar_vision.php').
+      then(function(response) {
+       // $scope.$apply(function() {
+            $scope.vision = response.data;
+            //console.log(response.data);
+           
+      //  })
+        
+     })
+
+      $http.get('http://kambamberos.wirez.com.ar/php/listar_mensajes.php').
+      then(function(response) {
+       // $scope.$apply(function() {
+            $scope.mural = response.data;
+            //console.log(response.data);
+           
+      //  })
+        
+     })
+
+
+      $http.get('http://kambamberos.wirez.com.ar/php/listar_personas.php').
+      then(function(response) {
+       // $scope.$apply(function() {
+            $scope.cargar_personas = response.data;
+            //console.log(response.data);
+           
+      //  })
+        
+     })
+
+    $scope.guardar = function(){
+
+    $id = document.getElementById("id").value;
+    $email = document.getElementById("email").value;
+    $mensaje = document.getElementById("mensaje").value;
+
+     // var peticion = {
+     //    data:{id:89},
+     //    method:'POST',
+     //    url:'php/guardar_mensajes.php',
+     //    headers:{'Content-Type': 'application/json'}
+     // }
+  
+        $http.post('http://kambamberos.wirez.com.ar/php/guardar_mensajes.php', {id:$id, email:$email, mensaje:$mensaje}).
+        then(function(response) {
+       // $scope.$apply(function() {
+           // alert(response.data);
+            window.alert(response.data);
+
+            document.getElementById("id").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("mensaje").value = "";
+           
+      //  })
+        
+     })
+      .catch(function(response) {
+         console.log(response,'error')
+      })
+
+                    
+     // alert("Funciona");
+
+    }
+
+    
 })
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
